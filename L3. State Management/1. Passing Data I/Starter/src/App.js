@@ -106,7 +106,7 @@ const App = () => {
         let profilUser  = users[profil.userID].name
         let favoriteMovie = movies[profil.favoriteMovieID].name
 
-        return <li>{`${profilUser} favorite movie is ${favoriteMovie}`}</li>
+        return <li key={profil.id}>{`${profilUser} favorite movie is ${favoriteMovie}`}</li>
       })}
      </ul>
     </div>
