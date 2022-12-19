@@ -1,3 +1,4 @@
+
 import "./App.css";
 import logo from "./logo.svg";
 
@@ -100,7 +101,18 @@ const App = () => {
         <img src={logo} className="App-logo" alt="logo" />
         <h1 className="App-title">ReactND - Coding Practice</h1>
       </header>
-      <h2>How Popular is Your Favorite Movie?</h2>
+      <ol>
+        {Object.values(movies).map(movie => {
+          const movieUsers = profiles.filter(profile => profile.favoriteMovieID == movie.id )
+          
+          if (movieUsers.length) {
+            const message = movieUsers.reduce((acc, curr) => {return `${acc} , ${users[curr.userID].name}`}, `The ${movie.name} is favoriesd by `)
+            return (<li key={movie.id}>{`${message}`}</li>)
+          } else {
+            return (<li key = {movie.id}> {`The ${movie.name} is not favoriesd by any user`}</li>)
+          }
+        }).flat()}
+      </ol>
     </div>
   );
 };
