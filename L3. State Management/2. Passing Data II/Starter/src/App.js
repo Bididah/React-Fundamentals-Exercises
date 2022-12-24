@@ -106,7 +106,7 @@ const App = () => {
           const movieUsers = profiles.filter(profile => profile.favoriteMovieID == movie.id )
           
           if (movieUsers.length) {
-            const message = movieUsers.reduce((acc, curr) => {return `${acc} , ${users[curr.userID].name}`}, `The ${movie.name} is favoriesd by `)
+            const message = movieUsers.reduce((acc, curr) => {return `${acc}  ${users[curr.userID].name}, `}, `The ${movie.name} is favoriesd by :`)
             return (<li key={movie.id}>{`${message}`}</li>)
           } else {
             return (<li key = {movie.id}> {`The ${movie.name} is not favoriesd by any user`}</li>)
